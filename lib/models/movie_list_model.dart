@@ -1,28 +1,26 @@
 import 'package:equatable/equatable.dart';
-import 'package:ytsapp/models/cast.dart';
 import 'package:ytsapp/models/torrent_model.dart';
 
-class MovieModel extends Equatable {
+class MovieListModel extends Equatable {
   String background_image;
   String background_image_original;
-  List<CastModel> cast;
   String date_uploaded;
   int date_uploaded_unix;
   String description_full;
-  String description_intro;
-  int download_count;
   List<String> genres;
   int id;
   String imdb_code;
   String language;
   String large_cover_image;
-  int like_count;
   String medium_cover_image;
   String mpa_rating;
   double rating;
   int runtime;
   String slug;
   String small_cover_image;
+  String state;
+  String summary;
+  String synopsis;
   String title;
   String title_english;
   String title_long;
@@ -31,27 +29,26 @@ class MovieModel extends Equatable {
   int year;
   String yt_trailer_code;
 
-  MovieModel(
+  MovieListModel(
       {this.background_image,
       this.background_image_original,
-      this.cast,
       this.date_uploaded,
       this.date_uploaded_unix,
       this.description_full,
-      this.description_intro,
-      this.download_count,
       this.genres,
       this.id,
       this.imdb_code,
       this.language,
       this.large_cover_image,
-      this.like_count,
       this.medium_cover_image,
       this.mpa_rating,
       this.rating,
       this.runtime,
       this.slug,
       this.small_cover_image,
+      this.state,
+      this.summary,
+      this.synopsis,
       this.title,
       this.title_english,
       this.title_long,
@@ -60,31 +57,28 @@ class MovieModel extends Equatable {
       this.year,
       this.yt_trailer_code});
 
-  factory MovieModel.fromJson(Map<String, dynamic> json) {
-    return MovieModel(
+  factory MovieListModel.fromJson(Map<String, dynamic> json) {
+    return MovieListModel(
       background_image: json['background_image'],
       background_image_original: json['background_image_original'],
-      cast: json['cast'] != null
-          ? (json['cast'] as List).map((e) => CastModel.fromJson(e)).toList()
-          : null,
       date_uploaded: json['date_uploaded'],
       date_uploaded_unix: json['date_uploaded_unix'],
       description_full: json['description_full'],
-      description_intro: json['description_intro'],
-      download_count: json['download_count'],
       genres:
           json['genres'] != null ? new List<String>.from(json['genres']) : null,
       id: json['id'],
       imdb_code: json['imdb_code'],
       language: json['language'],
       large_cover_image: json['large_cover_image'],
-      like_count: json['like_count'],
       medium_cover_image: json['medium_cover_image'],
       mpa_rating: json['mpa_rating'],
       rating: json['rating'].toDouble(),
       runtime: json['runtime'],
       slug: json['slug'],
       small_cover_image: json['small_cover_image'],
+      state: json['state'],
+      summary: json['summary'],
+      synopsis: json['synopsis'],
       title: json['title'],
       title_english: json['title_english'],
       title_long: json['title_long'],
@@ -101,25 +95,22 @@ class MovieModel extends Equatable {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['background_image'] = this.background_image;
     data['background_image_original'] = this.background_image_original;
-    if (this.cast != null) {
-      data['cast'] = this.cast;
-    }
     data['date_uploaded'] = this.date_uploaded;
     data['date_uploaded_unix'] = this.date_uploaded_unix;
     data['description_full'] = this.description_full;
-    data['description_intro'] = this.description_intro;
-    data['download_count'] = this.download_count;
     data['id'] = this.id;
     data['imdb_code'] = this.imdb_code;
     data['language'] = this.language;
     data['large_cover_image'] = this.large_cover_image;
-    data['like_count'] = this.like_count;
     data['medium_cover_image'] = this.medium_cover_image;
     data['mpa_rating'] = this.mpa_rating;
     data['rating'] = this.rating;
     data['runtime'] = this.runtime;
     data['slug'] = this.slug;
     data['small_cover_image'] = this.small_cover_image;
+    data['state'] = this.state;
+    data['summary'] = this.summary;
+    data['synopsis'] = this.synopsis;
     data['title'] = this.title;
     data['title_english'] = this.title_english;
     data['title_long'] = this.title_long;
@@ -139,23 +130,22 @@ class MovieModel extends Equatable {
   List<Object> get props => [
         background_image,
         background_image_original,
-        cast,
         date_uploaded,
         date_uploaded_unix,
         description_full,
-        description_intro,
-        download_count,
         id,
         imdb_code,
         language,
         large_cover_image,
-        like_count,
         medium_cover_image,
         mpa_rating,
         rating,
         runtime,
         slug,
         small_cover_image,
+        state,
+        summary,
+        synopsis,
         title,
         title_english,
         title_long,
